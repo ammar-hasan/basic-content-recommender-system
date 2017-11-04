@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
 ''' 
-[Mapper - Stage 1 - Join Movies and Ratings]
+[Reducer - Stage 4 - Make Recommendations]
 Author: Ammar Hasan Razvi
-Roll no: CT-088
-NED-MSCSIT-2016/17
 '''
 
 import sys

@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 
 ''' 
-[Mapper - Stage 1 - Join Movies and Ratings]
+[Reducer - Stage 3 - Recommend Movies]
 Author: Ammar Hasan Razvi
-Roll no: CT-088
-NED-MSCSIT-2016/17
 '''
 
 import sys
@@ -71,7 +69,7 @@ for row in csv.reader(iter(sys.stdin.readline, '')):
 
   denomenator = sqrt(denomenatorA) * sqrt(denomenatorB)
 
-  factor = round(numerator / denomenator, 5)
+  factor = round(numerator / denomenator, 5) # using cosine similarity
 
   writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   writer.writerow([float(factor), int(cMovieId), cTitle, cAllGenre, float(cRating), int(cTotalRatings)])

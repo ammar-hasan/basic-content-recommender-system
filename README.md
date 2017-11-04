@@ -1,7 +1,7 @@
 # بسم اللہ الرحمن الرحیم
 
-## Basic Recommendation Engine
-This repository contains a Basic Product Recommendation Engine to be used with native and AWS EMR Hadoop. It's actually a collection of mapper and reducer files to be run on different stages in Hadoop or Amazon's AWS Elastic MapReduce.
+## Basic Recommender System
+This repository contains a Basic Product Recommender Systen to be used with native and AWS EMR Hadoop. It's actually a collection of mapper and reducer files to be run on different stages in Hadoop or Amazon's AWS Elastic MapReduce.
 
 This recommendation engine is based on Similarity matching (cosine similarity) algorithm.
 

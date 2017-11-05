@@ -12,6 +12,7 @@ import csv
 Algorithm:
 '''
 
+writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
 for row in csv.reader(iter(sys.stdin.readline, '')):
   a = row[0].strip()
   b = row[1].strip()
@@ -20,7 +21,6 @@ for row in csv.reader(iter(sys.stdin.readline, '')):
   if a == 'movieId':
     continue
 
-  writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   if len(row) == 4:
     writer.writerow([int(a), 'rating', float(b), int(c)])
   else:

@@ -22,6 +22,7 @@ rating = 0
 totalRatings = 0
 setA = None
 
+writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
 for row in csv.reader(iter(sys.stdin.readline, '')):
   kind = row[0]
   cMovieId = row[1]
@@ -71,5 +72,4 @@ for row in csv.reader(iter(sys.stdin.readline, '')):
 
   factor = round(numerator / denomenator, 5) # using cosine similarity
 
-  writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   writer.writerow([float(factor), int(cMovieId), cTitle, cAllGenre, float(cRating), int(cTotalRatings)])

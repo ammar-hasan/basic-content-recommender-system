@@ -18,8 +18,9 @@ MIN_SIMILAR = 0.95
 recos = 0
 
 print('movieId,title,genre,rating,totalRatings')
+writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
 
-for row in csv.reader(iter(sys.stdin.readline, '')):
+for row in csv.reader(iter(sys.stdin.readline, ''), delimiter='\t'):
   rating = float(row[5].strip())
 
   if rating < MIN_RATING:
@@ -37,7 +38,6 @@ for row in csv.reader(iter(sys.stdin.readline, '')):
   genre = row[4].strip()
   totalRatings = int(row[6].strip())
 
-  writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   writer.writerow([movieId, title, genre, rating, totalRatings])
 
   recos += 1

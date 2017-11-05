@@ -35,12 +35,12 @@ profile = None
 
 print('%s,%s,%s,%s,%s' % ('movieId', 'title', 'genre', 'rating', 'totalRatings'))
 
+writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
 for row in csv.reader(iter(sys.stdin.readline, '')):
   cid = row[0].strip()
 
   if movieId != cid:
     if movieId is not None:
-      writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
       writer.writerow([profile.movieId, profile.title, profile.genre, profile.rating, profile.totalRatings])
 
     movieId = cid
@@ -49,5 +49,4 @@ for row in csv.reader(iter(sys.stdin.readline, '')):
     profile = setProfile(row, profile)
 
 if movieId is not None:
-  writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   writer.writerow([profile.movieId, profile.title, profile.genre, profile.rating, profile.totalRatings])

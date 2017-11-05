@@ -12,8 +12,8 @@ import csv
 Algorithm:
 '''
 
+writer = csv.writer(sys.stdout, delimiter='\t', quoting=csv.QUOTE_NONNUMERIC)
 for row in csv.reader(iter(sys.stdin.readline, '')):
-  writer = csv.writer(sys.stdout, quoting=csv.QUOTE_NONNUMERIC)
   key = '%s-%s-%s' % (row[4].strip(), row[5].strip(), row[0].strip())
   row.insert(0, key)
   writer.writerow(row)

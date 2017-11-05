@@ -51,6 +51,11 @@ hadoop jar $HDJAR_PATH \
  -output /reco/output/stage-4 \
  1>> logs/out.log 2>> logs/err.log;
 
+SUCCESS=$(hadoop fs -ls /reco/output/stage-4/_SUCCESS)
+if [ -z "$SUCCESS" ]; then
+	echo "Program has failed during execution, check logs.";
+fi
+
 echo "Downloading the output file from HDFS to $PWD/output/recos.csv";
 rm -f $PWD/output/recos.csv 1>> logs/out.log 2>> logs/err.log;
 hadoop fs -getmerge /reco/output/stage-4 $PWD/output/recos.csv 1>> logs/out.log 2>> logs/err.log;
